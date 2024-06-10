@@ -10,7 +10,7 @@ export const Home = () => {
       />
       <ProductCard
         title="tarjeta2"
-        description="esta es la segjnda tarjeta"
+        description="esta es la segunda tarjeta"
         price={200}
       />
     </div>
