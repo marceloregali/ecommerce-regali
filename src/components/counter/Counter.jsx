@@ -4,7 +4,6 @@ export const Counter = () => {
   const [contador, setContador] = useState(0);
 
   console.log(contador);
-  //let contador = 0;
 
   const restar = () => {
     setContador(contador - 1);
