@@ -1,15 +1,11 @@
-import { Counter } from "./components/counter/Counter";
-import Footer from "./components/footer/Footer";
 import { NavBar } from "./components/navbar/Navbar";
-import { Home } from "./pages/home/home";
+import ItemListConteiner from "./pages/itemListContainer/ItemListConteiner";
 
 function App() {
   return (
     <div>
-      {/*<NavBar />
-      <Home />*/}
-      <Counter />
-      {/*<Footer />*/}
+      <NavBar />
+      <ItemListConteiner greeting={"Primeros pasos React"} />
     </div>
   );
 }

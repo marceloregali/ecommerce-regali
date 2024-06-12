@@ -1,3 +1,8 @@
-.navbarContainer{
-    background-color: blue;
+.navbarContainer {
+  background-color: rgb(89, 89, 224);
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  min-height: 10vh;
+  align-items: center;
 }
