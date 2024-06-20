@@ -1,7 +1,19 @@
-const ItemList = () => {
+import { ProductCard } from "../../components/productCard/ProductCard";
+
+const ItemList = ({ items }) => {
+  console.log(items); // Solo para depuración, puedes eliminar esta línea si no la necesitas
   return (
-    <div>
-      <h1>Aca van los productos </h1>
+    <div style={{ display: "flex", gap: "20px" }}>
+      {items.map((elemento) => {
+        return (
+          <ProductCard
+            key={elemento.id}
+            title={elemento.title}
+            description={elemento.description}
+            price={elemento.price}
+          />
+        );
+      })}
     </div>
   );
 };

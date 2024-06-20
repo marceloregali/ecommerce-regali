@@ -20,6 +20,7 @@ export let products = [
   {
     id: 3,
     title: "Zapatillas Adidas",
+    price: 89248,
     description: "Uso diario",
     img: "https://res.cloudinary.com/dxeifza9d/image/upload/v1718915629/ZAPATILLAS_JOGGING_RUNNING_ADIDAS_GALAXY_4_MUJER_NEGRO_rgbczu.jpg",
     stock: 33,
