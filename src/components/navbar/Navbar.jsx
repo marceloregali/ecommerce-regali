@@ -5,7 +5,7 @@ export const NavBar = () => {
   return (
     <div className="navbarContainer">
       <img
-        src="https://th.bing.com/th/id/OIP.CgMsyL6oyplTAsvevl6g3QHaFm?w=185&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+        src="https://res.cloudinary.com/dxeifza9d/image/upload/v1718915255/OIP.CgMsyL6oyplTAsvevl6g3QHaFm_nmozje.jpg"
         alt=""
         style={{
           width: "100px",
