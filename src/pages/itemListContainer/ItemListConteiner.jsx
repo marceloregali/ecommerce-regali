@@ -1,10 +1,7 @@
-const ItemListConteiner = (greeting) => {
-  console.log(greeting);
-  return (
-    <div>
-      <h1>{greeting.greeting}</h1>
-    </div>
-  );
+import ItemList from "./ItemList";
+
+const ItemListConteiner = () => {
+  return <ItemList />;
 };
 
 export default ItemListConteiner;

@@ -5,7 +5,7 @@ function App() {
   return (
     <div>
       <NavBar />
-      <ItemListConteiner greeting={"Primeros pasos React"} />
+      <ItemListConteiner />
     </div>
   );
 }

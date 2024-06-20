@@ -1,18 +1,6 @@
-import { useState } from "react";
+import { ProductCard } from "../productCard/ProductCard";
 
-export const Counter = () => {
-  const [contador, setContador] = useState(0);
-
-  console.log(contador);
-
-  const restar = () => {
-    setContador(contador - 1);
-  };
-
-  const sumar = () => {
-    setContador(contador + 1);
-  };
-
+export const Counter = ({ restar, contador, sumar }) => {
   return (
     <div>
       <button onClick={restar}>Restar</button>
