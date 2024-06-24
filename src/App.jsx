@@ -3,10 +3,10 @@ import ItemListConteiner from "./pages/itemListContainer/ItemListConteiner";
 
 function App() {
   return (
-    <div>
+    <>
       <NavBar />
       <ItemListConteiner />
-    </div>
+    </>
   );
 }
 
