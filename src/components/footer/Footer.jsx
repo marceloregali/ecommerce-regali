@@ -1,15 +1,15 @@
-import "./footer.css"
+import "./footer.css";
 
 const Footer = () => {
-    return (
-    <div>
-        <ul>
-            <li>instagram</li>
-            <li>X</li>
-            <li>Facebook</li>
-        </ul>
+  return (
+    <div className="footer">
+      <ul>
+        <li>INSTAGRAM</li>
+        <li>X</li>
+        <li>Facebook</li>
+      </ul>
     </div>
-)
+  );
 };
 
 export default Footer;

@@ -1,6 +1,7 @@
 import "./navbar.css";
 import { BsCartCheckFill } from "react-icons/bs";
-
+import Button from "@mui/material/Button";
+import { TextField } from "@mui/material";
 export const NavBar = () => {
   return (
     <div className="navbarContainer">
@@ -16,16 +17,17 @@ export const NavBar = () => {
 
       <ul style={{ display: "flex", gap: "30px" }}>
         <li style={{ listStyle: "none", color: "white", fontSize: "1.5rem" }}>
-          Producto
+          <Button variant="outlined">Deportivas</Button>
         </li>
         <li style={{ listStyle: " none", color: "white", fontSize: "1.5rem" }}>
-          Caracteristicas
+          <Button variant="outlined">Urbanas</Button>
         </li>
         <li style={{ listStyle: "none", color: "white", fontSize: "1.5rem" }}>
-          Contacto
+          <Button variant="outlined">Contacto</Button>
         </li>
       </ul>
-
+      <div style={{ padding: "40px" }}></div>
+      <TextField label="Email" variant="outlined" />
       <BsCartCheckFill
         color="white"
         size={40}
