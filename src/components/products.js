@@ -36,7 +36,7 @@ export let products = [
     category: "Deportivas",
   },
   {
-    id: 4,
+    id: 5,
     title: "Zapatillas Ad Traikin ",
     price: 22400,
     description: "Colores que van a resaltar en lo diario",
