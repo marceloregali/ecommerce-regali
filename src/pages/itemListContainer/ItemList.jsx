@@ -1,9 +1,18 @@
+import { Navbar } from "../../components/navbar/Navbar";
 import { ProductCard } from "../../components/productCard/ProductCard";
 
 const ItemList = ({ items }) => {
-  console.log(items); // Solo para depuración, puedes eliminar esta línea si no la necesitas
+  console.log(items);
   return (
-    <div style={{ display: "flex", gap: "20px" }}>
+    <div
+      style={{
+        display: "flex",
+        gap: "20px",
+        marginTop: "20px",
+        flexWrap: "wrap",
+        justifyContent: "space-evenly",
+      }}
+    >
       {items.map((elemento) => {
         return (
           <ProductCard
@@ -11,6 +20,8 @@ const ItemList = ({ items }) => {
             title={elemento.title}
             description={elemento.description}
             price={elemento.price}
+            id={elemento.id}
+            img={elemento.img}
           />
         );
       })}

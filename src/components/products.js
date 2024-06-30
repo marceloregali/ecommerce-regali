@@ -1,8 +1,8 @@
 export let products = [
   {
     id: 1,
-    title: "Zapatillas Adidas",
-    price: 12345,
+    title: "Zapatillas Adidas ",
+    price: 12000,
     description: "Diseño innovador",
     img: "https://res.cloudinary.com/dxeifza9d/image/upload/v1718915720/adidas-originals-decade-og-mid-dark-green-2_c0qjfl.jpg",
     stock: 24,
@@ -10,8 +10,8 @@ export let products = [
   },
   {
     id: 2,
-    title: "Zapatillas Adidas",
-    price: 23456,
+    title: "Zapatillas Adidas ",
+    price: 24000,
     description: "Comodidad",
     img: "https://res.cloudinary.com/dxeifza9d/image/upload/v1718915681/4c96369f8a5d3dc3629428567b389dcc_ebcn87.jpg",
     stock: 14,
@@ -19,8 +19,8 @@ export let products = [
   },
   {
     id: 3,
-    title: "Zapatillas Adidas",
-    price: 89248,
+    title: "Zapatillas Adidas ",
+    price: 90000,
     description: "Uso diario",
     img: "https://res.cloudinary.com/dxeifza9d/image/upload/v1718915629/ZAPATILLAS_JOGGING_RUNNING_ADIDAS_GALAXY_4_MUJER_NEGRO_rgbczu.jpg",
     stock: 33,
@@ -28,8 +28,8 @@ export let products = [
   },
   {
     id: 4,
-    title: "Zapatillas Adidas",
-    price: 56789,
+    title: "Zapatillas Adidas ",
+    price: 12400,
     description: "Flexibilidad",
     img: "https://res.cloudinary.com/dxeifza9d/image/upload/v1718915573/5fd7617af0c149a0156b2bf1ff32847d_bme9vu.jpg",
     stock: 13,

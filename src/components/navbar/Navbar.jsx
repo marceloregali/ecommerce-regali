@@ -1,38 +1,48 @@
 import "./navbar.css";
-import { BsCartCheckFill } from "react-icons/bs";
-import Button from "@mui/material/Button";
-import { TextField } from "@mui/material";
-export const NavBar = () => {
-  return (
-    <div className="navbarContainer">
-      <img
-        src="https://res.cloudinary.com/dxeifza9d/image/upload/v1718915255/OIP.CgMsyL6oyplTAsvevl6g3QHaFm_nmozje.jpg"
-        alt=""
-        style={{
-          width: "100px",
-          height: "100px",
-          objectFit: "cover",
-        }}
-      />
 
-      <ul style={{ display: "flex", gap: "30px" }}>
-        <li style={{ listStyle: "none", color: "white", fontSize: "1.5rem" }}>
-          <Button variant="outlined">Deportivas</Button>
-        </li>
-        <li style={{ listStyle: " none", color: "white", fontSize: "1.5rem" }}>
-          <Button variant="outlined">Urbanas</Button>
-        </li>
-        <li style={{ listStyle: "none", color: "white", fontSize: "1.5rem" }}>
-          <Button variant="outlined">Contacto</Button>
-        </li>
-      </ul>
-      <div style={{ padding: "40px" }}></div>
-      <TextField label="Email" variant="outlined" />
-      <BsCartCheckFill
-        color="white"
-        size={40}
-        style={{ marginRight: "20px" }}
-      />
+import Button from "@mui/material/Button";
+
+import CartWidget from "../cartWidget/CartWidge";
+import { Link } from "react-router-dom";
+export const Navbar = () => {
+  return (
+    <div>
+      <>
+        <div className="containerNavbar">
+          <Link to="/">
+            <img
+              src="https://res.cloudinary.com/dxeifza9d/image/upload/v1718915255/OIP.CgMsyL6oyplTAsvevl6g3QHaFm_nmozje.jpg"
+              alt=""
+              style={{
+                width: "100px",
+                height: "100px",
+                objectFit: "cover",
+              }}
+            />
+          </Link>
+          <ul style={{ display: "flex", gap: "30px" }}>
+            <Link
+              to="/category/Urbanas"
+              style={{ listStyle: "none", color: "white", fontSize: "1.5rem" }}
+            >
+              <Button variant="outlined">Urbanas</Button>
+            </Link>
+            <Link
+              to="/category/Deportivas"
+              style={{ listStyle: " none", color: "white", fontSize: "1.5rem" }}
+            >
+              <Button variant="outlined">Deportivas</Button>
+            </Link>
+            <Link
+              to="/"
+              style={{ listStyle: "none", color: "white", fontSize: "1.5rem" }}
+            >
+              <Button variant="outlined"> Mis Productos</Button>
+            </Link>
+          </ul>
+          <CartWidget />
+        </div>
+      </>
     </div>
   );
 };
