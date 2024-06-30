@@ -30,7 +30,7 @@ export const ProductCard = ({ title, description, price, id, img }) => {
       <CardActions>
         <Link to={`/itemDetail/${id}`}>
           <Button size="small" variant="contained">
-            Al Carrito
+            VER MAS
           </Button>
         </Link>
       </CardActions>

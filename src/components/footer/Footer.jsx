@@ -5,9 +5,9 @@ const Footer = () => {
     <>
       <div className="footer">
         <ul>
-          <li>INSTAGRAM</li>
-          <li>X</li>
-          <li>Facebook</li>
+          <li>Nuestro isntagram: marcadoestilo.ok</li>
+          <li>whatshapp: 342587789</li>
+          <li>Email:Marcandoestilo@gmail.com</li>
         </ul>
       </div>
     </>
