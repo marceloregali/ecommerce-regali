@@ -1,11 +1,29 @@
 import CounterContainer from "../../components/counter/CounterContainer";
-
-const ItemDetail = ({ item }) => {
+import "./itemDetail.css";
+const ItemDetail = ({ item, onAdd }) => {
   return (
     <>
       <div>
-        <h2>{item.title}</h2>
-        <CounterContainer />
+        <div className={"conteinerItemDetail"}>
+          <div className={"containerImage"}>
+            <img src={item.img} alt="" />
+          </div>
+
+          <div className={"containerDetail"}>
+            <h2 style={{ fontFamily: "monospace" }}>
+              <span style={{ fontSize: "23px" }}>Nombre:</span> {item.title}
+            </h2>
+            <h2 style={{ fontFamily: "monospace" }}>
+              <span style={{ fontSize: "23px" }}>Descripcion:</span>
+              {""}
+              {item.description}
+            </h2>
+            <h2 style={{ fontFamily: "monospace" }}>
+              <span style={{ fontSize: "23px" }}>Precio:</span>${item.price}.-
+            </h2>
+          </div>
+        </div>
+        <CounterContainer onAdd={onAdd} />
       </div>
     </>
   );

@@ -9,13 +9,17 @@ const ItemDetailContainer = () => {
   const [item, setItem] = useState({});
 
   useEffect(() => {
-    // Cambiar 'usesEffect' a 'useEffect' (error de ortografía)
-    let product = products.find((product) => product.id === +id); // Cambiar 'product' a 'products' para buscar en el array 'products'
+    let product = products.find((product) => product.id === +id);
     if (product) {
       setItem(product);
     }
   }, [id]);
-  return <ItemDetail item={item} />;
+
+  console.log(item);
+
+  const onAdd = () => {};
+
+  return <ItemDetail item={item} onAdd={onAdd} />;
 };
 
 export default ItemDetailContainer;
