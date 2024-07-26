@@ -1,4 +1,4 @@
-import { Button } from "@mui/icons-material";
+import { Button } from "@mui/material";
 
 export const Counter = ({ restar, contador, sumar, onAdd }) => {
   return (
@@ -18,7 +18,7 @@ export const Counter = ({ restar, contador, sumar, onAdd }) => {
         Sumar
       </Button>
 
-      <Button variant="outlined" onClick={onAdd}>
+      <Button variant="outlined" onClick={() => onAdd(contador)}>
         Agregar al carrito
       </Button>
     </div>
