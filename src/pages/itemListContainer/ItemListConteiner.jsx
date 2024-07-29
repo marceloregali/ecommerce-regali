@@ -15,7 +15,9 @@ const ItemListConteiner = () => {
         (products) => products.category === name
       );
       if (x) {
-        resolve(name ? arrayFiltered : products);
+        setTimeout(() => {
+          resolve(name ? arrayFiltered : products);
+        }, 3000);
       } else {
         reject({ message: "error", codigo: "404" });
       }
@@ -31,8 +33,15 @@ const ItemListConteiner = () => {
         setError(error);
       });
   }, [name]);
-  console.log(items);
-  return <ItemList items={items} />;
+  //if (items.lenght === 0) {
+  //return <h1>Cargando...</h1>; //chequear
+  // }
+  return (
+    //chequear
+    <div>
+      {items.lenght === 0 ? <h1>Cargando...</h1> : <ItemList items={items} />}
+    </div>
+  );
 };
 
 export default ItemListConteiner;
