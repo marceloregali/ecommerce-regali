@@ -1,44 +1,39 @@
 import ItemList from "./ItemList";
-import { products } from "../../components/products";
+
 import { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { HashLoader } from "react-spinners";
+import { db } from "../../firebaseConfig";
+import { collection, getDocs, query, where } from "firebase/firestore";
 
 const ItemListConteiner = () => {
-  const [items, setItems] = useState([]);
-  const [error, setError] = useState({});
   const { name } = useParams();
+  const [items, setItems] = useState([]);
+
+  //hacemos la peticion a firestone
+  //me trae los producos
+  //lo guardo en el estado
 
   useEffect(() => {
-    const getProducts = new Promise((resolve, reject) => {
-      let x = true;
-      let arrayFiltered = products.filter(
-        (products) => products.category === name
-      );
-      if (x) {
-        setTimeout(() => {
-          resolve(name ? arrayFiltered : products);
-        }, 2000);
-      } else {
-        reject({ message: "error", codigo: "404" });
-      }
-    });
+    let productsCollection = collection(db, "products");
 
-    //manejar la promesa
+    let consulta = productsCollection;
+    if (name) {
+      consulta = query(productsCollection, where("category", "==", name));
+    }
 
-    getProducts
-      .then((res) => {
-        setItems(res);
-      })
-      .catch((error) => {
-        setError(error);
+    let getProducts = getDocs(consulta);
+    getProducts.then((res) => {
+      let arrayValido = res.docs.map((product) => {
+        return { ...product.data(), id: product.id };
       });
+      setItems(arrayValido);
+    });
   }, [name]);
-  //if (items.lenght === 0) {
-  //return <h1>Cargando...</h1>; //chequear
-  // }
-  //opcion 2 ///////////////
+
+  //metodo de espera(ternario) //
+
   return (
     <div
       style={{
@@ -57,3 +52,33 @@ const ItemListConteiner = () => {
 };
 
 export default ItemListConteiner;
+
+//useEffect(() => {
+//const getProducts = new Promise((resolve, reject) => {
+//let x = true;
+//let arrayFiltered = products.filter(
+//(products) => products.category === name
+//);
+//if (x) {
+//setTimeout(() => {
+//resolve(name ? arrayFiltered : products);
+//}, 2000);
+//} else {
+//reject({ message: "error", codigo: "404" });
+//}
+//});
+
+//manejar la promesa
+
+//getProducts
+//.then((res) => {
+//setItems(res);
+//})
+//.catch((error) => {
+//setError(error);
+//});
+//}, [name]);
+//if (items.lenght === 0) {
+//return <h1>Cargando...</h1>; //chequear
+// }
+//opcion 2 ///////////////
