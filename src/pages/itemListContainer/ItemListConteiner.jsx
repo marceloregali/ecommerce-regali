@@ -3,6 +3,8 @@ import { products } from "../../components/products";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { HashLoader } from "react-spinners";
+
 const ItemListConteiner = () => {
   const [items, setItems] = useState([]);
   const [error, setError] = useState({});
@@ -17,7 +19,7 @@ const ItemListConteiner = () => {
       if (x) {
         setTimeout(() => {
           resolve(name ? arrayFiltered : products);
-        }, 3000);
+        }, 2000);
       } else {
         reject({ message: "error", codigo: "404" });
       }
@@ -36,10 +38,20 @@ const ItemListConteiner = () => {
   //if (items.lenght === 0) {
   //return <h1>Cargando...</h1>; //chequear
   // }
+  //opcion 2 ///////////////
   return (
-    //chequear
-    <div>
-      {items.lenght === 0 ? <h1>Cargando...</h1> : <ItemList items={items} />}
+    <div
+      style={{
+        width: "100%",
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
+      {items.length === 0 ? (
+        <HashLoader color="blue" size={90} />
+      ) : (
+        <ItemList items={items} />
+      )}
     </div>
   );
 };
