@@ -32,8 +32,16 @@ const ItemListConteiner = () => {
     });
   }, [name]);
 
-  //metodo de espera(ternario) //
+  {
+    /*  const addProducts = () => {
+    let productsCollection = collection(db, "products");
+    products.forEach((elemento) => {
+      addDoc(productsCollection, elemento);
+    });
+  };*/
+  }
 
+  //metodo de espera(ternario) //
   return (
     <div
       style={{
@@ -42,6 +50,9 @@ const ItemListConteiner = () => {
         justifyContent: "center",
       }}
     >
+      {/*<Button variant="contained" onClick={addProducts}>
+        Agregar Producto
+      </Button>*/}
       {items.length === 0 ? (
         <HashLoader color="blue" size={90} />
       ) : (

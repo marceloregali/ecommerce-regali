@@ -1,103 +1,76 @@
-import { useState } from "react";
-
+import { useContext, useState } from "react";
+import { CartContext } from "../../context/CartContext";
+import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
+import { db } from "../../firebaseConfig";
+import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 const Checkout = () => {
-  const [user, setUser] = useState({ nombre: "", email: "", telefono: "" });
+  const navigate = useNavigate(); //devuelve una funcion
 
-  const [arrayCheckbox, setArrayCheckbox] = useState([]);
-  console.log(arrayCheckbox);
+  const [user, setUser] = useState({ nombre: "", email: "", telefono: "" });
+  const { cart, getTotalPrice, clearCart } = useContext(CartContext);
+  const [orderId, setOrderId] = useState(""); //truthy y falsy
+  let total = getTotalPrice();
   const envioDeFormulario = (event) => {
     event.preventDefault();
-    console.log(user);
+    let order = {
+      buyer: user,
+      items: cart,
+      total: total,
+    };
+
+    let ordersCollection = collection(db, "orders");
+    let productCollection = collection(db, "products");
+    cart.forEach((elemento) => {
+      let refDoc = doc(productCollection, elemento.id);
+      updateDoc(refDoc, { stock: elemento.stock - elemento.quantity });
+    });
+
+    addDoc(ordersCollection, order)
+      .then((res) => {
+        setOrderId(res.id);
+        toast.success("Gracias por su compra, su ticket es ${res.id}");
+      })
+      .catch()
+      .finally(() => {
+        clearCart();
+        navigate("/");
+      });
   };
 
   const capturarData = (event) => {
-    //let { name, value } = event.target;
     setUser({ ...user, [event.target.name]: event.target.value });
-  };
-  //aca el select--option
-  const handleSelect = (e) => {
-    console.log(e.target.value);
-  };
-
-  const handleRadio = (e) => {
-    console.log(e.target.value);
-  };
-
-  const handleCheckbox = (e) => {
-    const { value, checked } = e.target;
-    if (checked) {
-      setArrayCheckbox([...arrayCheckbox, value]);
-    } else {
-      let newArr = arrayCheckbox.filter((el) => el !== value);
-      setArrayCheckbox(newArr);
-    }
-  };
-
-  const sumar = (a, b) => {
-    console.log(a + b);
   };
 
   return (
     <div>
       <h1>Aca va el Formulario</h1>
+      {orderId ? (
+        <h2>Gracias por tu Compra, tu ticket es :{orderId} </h2>
+      ) : (
+        <form onSubmit={envioDeFormulario}>
+          <input
+            type="text"
+            placeholder="Ingresa tu Nombre"
+            onChange={capturarData}
+            name="nombre"
+          />
+          <input
+            type="text"
+            placeholder="Ingresa tu Email"
+            name="email"
+            onChange={capturarData}
+          />
+          <input
+            type="text"
+            placeholder="Ingresa tu Telefono"
+            name="telefono"
+            onChange={capturarData}
+          />
 
-      <form onSubmit={envioDeFormulario}>
-        <input
-          type="text"
-          placeholder="Ingresa tu Nombre"
-          onChange={capturarData}
-          name="nombre"
-        />
-        <input
-          type="text"
-          placeholder="Ingresa tu Email"
-          name="email"
-          onChange={capturarData}
-        />
-        <input
-          type="text"
-          placeholder="Ingresa tu Telefono"
-          name="telefono"
-          onChange={capturarData}
-        />
-        {/*SELECT*/}
-        <select onChange={handleSelect}>
-          <option label="uno" value={"one"} />
-          <option label="dos" value={"two"} />
-          <option label="tres" value={"tree"} />
-        </select>
-        {/*RADIO BUTTON*/}
-        {/*name entidad (selecciono solo una opcion)*/}
-        <label>Una Unidad</label>
-        <input
-          type="radio"
-          name="entidad"
-          onChange={handleRadio}
-          value="avion"
-        />
-        <label>Dos Unidades</label>
-        <input
-          type="radio"
-          name="entidad"
-          onChange={handleRadio}
-          value="avion"
-        />
-
-        {/*RADIO BUTTON*/}
-        <label>Rojo</label>
-        <input type="checkbox" value={"rojo"} onChange={handleCheckbox} />
-        <label>Azul</label>
-        <input type="checkbox" value={"azul"} onChange={handleCheckbox} />
-        <label>Verde</label>
-        <input type="checkbox" value={"verde"} onChange={handleCheckbox} />
-        <label>Amarillo</label>
-        <input type="checkbox" value={"amarillo"} onChange={handleCheckbox} />
-        {/*botones*/}
-        <button>Enviar</button>
-        <button type="button">Cancelar</button>
-      </form>
-
-      <button onClick={() => sumar(10, 5)}>sumar</button>
+          <button>Comprar</button>
+        </form>
+      )}
     </div>
   );
 };

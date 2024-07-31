@@ -1,6 +1,5 @@
 export let products = [
   {
-    id: 1,
     title: "Zapatillas Ad New Road ",
     price: 12000,
     description: "Diseño innovador y la durabilidad que buscas",
@@ -9,7 +8,6 @@ export let products = [
     category: "Urbanas",
   },
   {
-    id: 2,
     title: "Zapatillas Ad Advance ",
     price: 24000,
     description: "Comodidad, confiabilidad y durabilidas",
@@ -18,7 +16,6 @@ export let products = [
     category: "Urbanas",
   },
   {
-    id: 3,
     title: "Zapatillas Ad Atletico ",
     price: 90000,
     description: "Para realizar cualquier tipo de actividad",
@@ -27,7 +24,6 @@ export let products = [
     category: "Deportivas",
   },
   {
-    id: 4,
     title: "Zapatillas Ad Ciclismo ",
     price: 12400,
     description: "Flexibilidad y uso diario",
@@ -36,7 +32,6 @@ export let products = [
     category: "Deportivas",
   },
   {
-    id: 5,
     title: "Zapatillas Ad Traikin ",
     price: 22400,
     description: "Colores que van a resaltar en lo diario",
