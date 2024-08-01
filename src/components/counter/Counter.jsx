@@ -1,4 +1,5 @@
 import { Button } from "@mui/material";
+import PropTypes from "prop-types";
 
 export const Counter = ({ restar, contador, sumar, onAdd }) => {
   return (
@@ -23,4 +24,11 @@ export const Counter = ({ restar, contador, sumar, onAdd }) => {
       </Button>
     </div>
   );
+};
+
+Counter.propTypes = {
+  sumar: PropTypes.object,
+  restar: PropTypes.object,
+  onAdd: PropTypes.func,
+  contador: PropTypes.number,
 };

@@ -1,5 +1,7 @@
 import { createContext, useState } from "react";
 export const CartContext = createContext();
+import PropTypes from "prop-types";
+
 //cartcontextprovider puede ir el nombre que querramos en el provider
 //siempre en mayuscula ej:CartContext
 const CartContextProvider = ({ children }) => {
@@ -94,6 +96,12 @@ const CartContextProvider = ({ children }) => {
   };
 
   return <CartContext.Provider value={data}>{children}</CartContext.Provider>;
+};
+
+CartContext.propTypes = {
+  children: PropTypes.array,
+  //children: PropTypes.func,
+  //children: PropTypes.number,
 };
 
 export default CartContextProvider;

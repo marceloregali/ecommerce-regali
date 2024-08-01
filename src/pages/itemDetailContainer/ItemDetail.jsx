@@ -1,5 +1,7 @@
 import CounterContainer from "../../components/counter/CounterContainer";
 import "./itemDetail.css";
+import PropTypes from "prop-types";
+
 const ItemDetail = ({ item, onAdd, initial }) => {
   return (
     <>
@@ -28,5 +30,9 @@ const ItemDetail = ({ item, onAdd, initial }) => {
     </>
   );
 };
-
+ItemDetail.propTypes = {
+  item: PropTypes.object,
+  onAdd: PropTypes.func,
+  initial: PropTypes.number,
+};
 export default ItemDetail;

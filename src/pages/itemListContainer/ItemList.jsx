@@ -1,4 +1,5 @@
 import { ProductCard } from "../../components/productCard/ProductCard";
+import PropTypes from "prop-types";
 
 const ItemList = ({ items }) => {
   return (
@@ -26,5 +27,7 @@ const ItemList = ({ items }) => {
     </div>
   );
 };
-
+ItemList.propTypes = {
+  items: PropTypes.array,
+};
 export default ItemList;

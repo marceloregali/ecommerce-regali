@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+
 import {
   Card,
   CardMedia,
@@ -36,4 +38,12 @@ export const ProductCard = ({ title, description, price, id, img }) => {
       </CardActions>
     </Card>
   );
+};
+
+ProductCard.propTypes = {
+  price: PropTypes.object,
+  id: PropTypes.func,
+  title: PropTypes.number,
+  description: PropTypes.number,
+  img: PropTypes.object,
 };

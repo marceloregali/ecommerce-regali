@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Counter } from "./Counter";
+import PropTypes from "prop-types";
 
 const CounterContainer = ({ onAdd, stock, initial = 1 }) => {
   const [contador, setContador] = useState(initial);
@@ -23,6 +24,12 @@ const CounterContainer = ({ onAdd, stock, initial = 1 }) => {
   return (
     <Counter contador={contador} sumar={sumar} restar={restar} onAdd={onAdd} />
   );
+};
+
+CounterContainer.propTypes = {
+  stock: PropTypes.object,
+  onAdd: PropTypes.func,
+  initial: PropTypes.number,
 };
 
 export default CounterContainer;
