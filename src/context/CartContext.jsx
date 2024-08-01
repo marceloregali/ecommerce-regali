@@ -98,10 +98,8 @@ const CartContextProvider = ({ children }) => {
   return <CartContext.Provider value={data}>{children}</CartContext.Provider>;
 };
 
-CartContext.propTypes = {
-  children: PropTypes.array,
-  //children: PropTypes.func,
-  //children: PropTypes.number,
+CartContextProvider.propTypes = {
+  children: PropTypes.element,
 };
 
 export default CartContextProvider;

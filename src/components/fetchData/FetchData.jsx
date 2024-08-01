@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import PropTypes from "prop-types";
 
 const FetchData = () => {
-  const [productos, setProductos] = useState([]);
+  const [productos] = useState([]);
   useEffect(() => {
     const getProducts = fetch(" aca va la URL");
 
@@ -18,6 +19,10 @@ const FetchData = () => {
       ))}
     </div>
   );
+};
+
+FetchData.propTypes = {
+  setProductos: PropTypes.element,
 };
 
 export default FetchData;

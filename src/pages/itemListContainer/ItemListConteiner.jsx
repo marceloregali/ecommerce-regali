@@ -11,7 +11,7 @@ const ItemListConteiner = () => {
   const { name } = useParams();
   const [items, setItems] = useState([]);
 
-  //hacemos la peticion a firestone
+  //hacemos la peticion a firestore
   //me trae los producos
   //lo guardo en el estado
 
