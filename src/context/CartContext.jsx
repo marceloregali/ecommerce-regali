@@ -6,7 +6,9 @@ import PropTypes from "prop-types";
 //siempre en mayuscula ej:CartContext
 const CartContextProvider = ({ children }) => {
   //estado del carrito
-  const [cart, setCart] = useState([]); // el carrito marca 3 productos [ arreglo] x {objeto}
+  const [cart, setCart] = useState(
+    JSON.parse(localStorage.getItem("cart")) || []
+  ); // el carrito marca 3 productos [ arreglo] x {objeto}
   //quantity 10 - price 5 --->50
   //quantity 3 - price 10 --->30
   //sunar todos los subtotales // 80
@@ -30,13 +32,17 @@ const CartContextProvider = ({ children }) => {
         }
       }); //siempre devuelve un array y siempre de la misma longitud
       setCart(newArray);
+      //newArray
+      localStorage.setItem("cart", JSON.stringify(newArray));
     } else {
       setCart([...cart, product]); // lo que ya tiene el carrito mas un nuevo producto
+      localStorage.setItem("cart", JSON.stringify([...cart, product]));
     }
   };
 
   const cleanCart = () => {
     setCart([]);
+    localStorage.removeItem("cart");
   };
 
   const isInCart = (id) => {
@@ -48,10 +54,11 @@ const CartContextProvider = ({ children }) => {
   //eliminar cada producto
   const deleteProduct = (id) => {
     // encontrar producto y eleminarlo
-    console.log(id);
+
     //filter devuelve siempre un nuevo array
     let newArr = cart.filter((elemento) => elemento.id !== id); //filter retorna un booleano
     setCart(newArr);
+    localStorage.setItem("cart", JSON.stringify(newArr));
   };
 
   const getQuantityById = (id) => {

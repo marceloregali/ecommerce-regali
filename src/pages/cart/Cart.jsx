@@ -3,8 +3,10 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
 import Swal from "sweetalert2";
+import "./Cart.css";
+
 const Cart = () => {
-  const { cart, clearCart, deleteProduct, getTotalPrice } =
+  const { cart, cleanCart, deleteProduct, getTotalPrice } =
     useContext(CartContext);
   let total = getTotalPrice(); //precio por la compra completa
 
@@ -16,7 +18,6 @@ const Cart = () => {
       confirmButtonText: "Borrar",
       denyButtonText: `No borrar`,
     }).then((result) => {
-      /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
         Swal.fire("Eliminado!", "", "success");
         deleteProduct(id);
@@ -27,12 +28,17 @@ const Cart = () => {
   };
 
   return (
-    <div>
+    <div className="CartConteiner">
       {cart.map((elemento) => {
         return (
           <div
             key={elemento.id}
-            style={{ border: "2px solid black", width: "200px" }} //agregar diseño
+            style={{
+              border: "2px solid black",
+              width: "200px",
+              marginBottom: "30px",
+              margin: "20px",
+            }}
           >
             <h2>{elemento.title}</h2>
             <h2>{elemento.quantity}</h2>
@@ -49,8 +55,7 @@ const Cart = () => {
       <h2 className={cart.length > 0 ? "title" : "ocultar"}>
         Total a Pagar: {total}
       </h2>
-      {cart.length > 0 && <Button onClick={clearCart}>Limpiar carrito</Button>}
-      {/*no funciona limpiar carrito*/}
+      {cart.length > 0 && <Button onClick={cleanCart}>Limpiar carrito</Button>}
 
       <Link to="/checkout">
         <Button

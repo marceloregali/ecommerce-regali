@@ -1,0 +1,13 @@
+h1 {
+  font-size: 3rem;
+  color: rgb(28, 28, 238);
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: 0 auto;
+  gap: 30px;
+}

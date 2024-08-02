@@ -6,7 +6,7 @@ import CartWidget from "../cartWidget/CartWidge";
 import { Link } from "react-router-dom";
 export const Navbar = () => {
   return (
-    <div>
+    <div className="contentNavBar">
       <>
         <div className="containerNavbar">
           <Link to="/">
